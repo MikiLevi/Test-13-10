@@ -1,26 +1,24 @@
 import { Request, Response, NextFunction } from "express";
-import User from "../models/gradeModel";
-import Grade from "../models/gradeModel";
+import User, { Student } from "../models/gradeModel";
 
 // Create a new student
-export const addNewStudent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-  const { name, email, password, classId } = req.body;
+export const createUser = async (req: Request, res: Response) => {
 
-  const user = await User.create({ name, email, password, classId });
-  await user.save();
-
-  res.status(201).json({ message: "Student added successfully" });
+  const user = await User.create(req.body);
+  res.status(201).json({ user });
 };
 
 // Get all grades
-export const deletePost = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-  const grades = await grade.findOne({ _id: req.params.id });
-  if (!grades) {
-    res.status(404).json({ message: "Grade not found" });
-  } else {
-    return grades;
+
+export const getGrades = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const user: Student[] = await User.find();
+    res.status(200).json(user);
+  } catch (error: any) {
+    res.status(500).json({ message: error.message || error });
   }
 };
+
 // Get all posts
 export const getPosts = async (req: Request, res: Response, next: NextFunction): Promise<void> => { };
 

@@ -1,8 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import postRouter from "./routes/userRoutes";
-import userRouter from "./routes/gradeRoutes";
-import { errorHandler } from "./middleware/errorHandler";
+import userRouter from "./routes/userRoutes";
 import connectDB from "./config/db";
 
 dotenv.config();
@@ -16,12 +14,8 @@ app.use(express.json());
 connectDB();
 
 // Routes
-app.use("/api/posts", postRouter);
-app.use("/api/users", userRouter);
+app.use("/api", userRouter)
 
-
-// Error handling middleware
-app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { createUser, getUser, getUsers } from "../controllers/gradeController";
+import { } from "../controllers/gradeController";
 
-const userRouter = Router();
+const gradeRouter = Router();
 
-userRouter.post("/", createUser);
-userRouter.get("/", getUsers);
-userRouter.get("/:username", getUser);
+gradeRouter.get("/get",);
+gradeRouter.post("/",);
+gradeRouter.get("/:id",);
+gradeRouter.put("/:id",);
+gradeRouter.post("/:id/comments",);
 
-export default userRouter;
+export default gradeRouter;
