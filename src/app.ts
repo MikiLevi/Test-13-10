@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
-import postRouter from "./routes/postRoutes";
-import userRouter from "./routes/userRoutes";
+import postRouter from "./routes/teacherRoutes";
+import userRouter from "./routes/classRoutes";
 import { errorHandler } from "./middleware/errorHandler";
 import connectDB from "./config/db";
 

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import Post, { IPost } from "../models/postModel";
-import User from "../models/userModel";
+import Post, { IPost } from "../models/teacherModel";
+import User from "../models/gradeModel";
 
 // Create a new post
 export const createPost = async (
