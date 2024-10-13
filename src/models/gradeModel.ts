@@ -1,19 +1,13 @@
-import mongoose, { Schema, Document, Types } from "mongoose";
+import mongoose, { Schema } from "mongoose";
+import { User } from "./userModel";
 
-export interface IGrade extends Document {
-  _id: Types.ObjectId;
-  student: Types.ObjectId;
-  subject: string;
+export interface Student extends User {
   grade: number;
-  note: string;
 }
 
-const GradeSchema: Schema = new Schema({
-  student: { type: Types.ObjectId, ref: 'Student', required: true },
-  subject: { type: String, required: true },
+const studentSchema: Schema = new Schema({
   grade: { type: Number, required: true },
-  note: { type: String, required: true }
 });
 
-const Grade = mongoose.model<IGrade>('Grade', GradeSchema);
+const Grade = mongoose.model<Student>('Grade', studentSchema);
 export default Grade;

@@ -1,16 +1,16 @@
 import { Router } from "express";
 import {
-  createPost,
+  addNewStudent,
   getPosts,
   getPost,
   updatePost,
   deletePost,
   addComment,
-} from "../controllers/teacherController";
+} from "../controllers/userController";
 
 const postRouter = Router();
 
-postRouter.post("/", createPost);
+postRouter.post("/", addNewStudent);
 postRouter.get("/", getPosts);
 postRouter.get("/:id", getPost);
 postRouter.put("/:id", updatePost);
