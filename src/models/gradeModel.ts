@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { User } from "./userModel";
+import { IUser } from "../models/userModel";
 
-export interface Student extends User {
+export interface Student extends IUser {
   grade: number;
 }
 

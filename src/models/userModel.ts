@@ -1,12 +1,12 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
 
 
-export interface User extends Document {
+export interface IUser extends Document {
     _id: Types.ObjectId;
     name: string;
     email: string;
     password: string;
-    class: { name: string; classId: Types.ObjectId };
+    classRoom: { name: string; classId: Types.ObjectId };
     status: "Teacher" | "Stutent";
 }
 
@@ -18,5 +18,5 @@ const userSchema: Schema = new Schema({
     status: { type: String, enum: ["Teacher", "Student"] }
 });
 
-const User = mongoose.model<User>('User', userSchema);
+const User = mongoose.model<IUser>('User', userSchema);
 export default User;

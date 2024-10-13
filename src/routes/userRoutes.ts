@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { } from "../controllers/userController";
-import { getGrades } from '../controllers/userController';
+import { createUser, getUserByName, getUsers, deleteUserByName, loginUser } from "../controllers/userController";
 import { errorHandler } from "../middleware/errorHandler";
-
 const userRouter = Router();
 
-userRouter.get("/get", errorHandler(getGrades));
-userRouter.post("/",);
-userRouter.get("/:id",);
-userRouter.put("/:id",);
-userRouter.post("/:id/comments",);
+
+userRouter.post("/register", errorHandler(createUser));
+userRouter.post("/login", errorHandler(loginUser));
+userRouter.get("/", errorHandler(getUsers));
+userRouter.get("/:username", errorHandler(getUserByName));
+userRouter.delete("/:username", errorHandler(deleteUserByName));
+
 
 export default userRouter;
